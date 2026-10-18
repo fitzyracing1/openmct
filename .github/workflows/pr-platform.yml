@@ -23,8 +23,10 @@ jobs:
           - macos-latest
           - windows-latest
         node_version:
-          - lts/iron
-          - lts/hydrogen
+          # Keep in sync with package.json "engines" and .nvmrc:
+          # the minimum supported version and the latest Node 24 LTS.
+          - '24.14.1'
+          - lts/krypton
         architecture:
           - x64
 
