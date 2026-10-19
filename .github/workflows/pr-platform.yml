@@ -50,6 +50,11 @@ jobs:
 
       - run: npm ci --no-audit --progress=false
 
+      # karma.conf.cjs serves the prebuilt workers from dist/ (e.g.
+      # dist/inMemorySearchWorker.js), so build before running unit tests,
+      # as pr.yml's unit-test job does.
+      - run: npm run build
+
       - run: npm test
 
       - run: npm run lint -- --quiet
