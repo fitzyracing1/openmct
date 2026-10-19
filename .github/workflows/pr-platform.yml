@@ -27,8 +27,15 @@ jobs:
           # the minimum supported version and the latest Node 24 LTS.
           - '24.14.1'
           - lts/krypton
-        architecture:
-          - x64
+        # macos-latest runners are Apple Silicon; forcing x64 Node there runs
+        # under Rosetta and Karma's ChromeHeadless never gets captured.
+        include:
+          - os: ubuntu-latest
+            architecture: x64
+          - os: macos-latest
+            architecture: arm64
+          - os: windows-latest
+            architecture: x64
 
     name: Node ${{ matrix.node_version }} - ${{ matrix.architecture }} on ${{ matrix.os }}
     steps:
