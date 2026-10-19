@@ -29,6 +29,16 @@ jobs:
           - lts/krypton
         architecture:
           - x64
+        exclude:
+          - os: macos-latest
+            architecture: x64
+        include:
+          - os: macos-latest
+            node_version: '24.14.1'
+            architecture: arm64
+          - os: macos-latest
+            node_version: lts/krypton
+            architecture: arm64
 
     name: Node ${{ matrix.node_version }} - ${{ matrix.architecture }} on ${{ matrix.os }}
     steps:
