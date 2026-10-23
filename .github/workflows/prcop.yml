@@ -16,6 +16,11 @@ on:
       - created
 env:
   LABELS: ${{ join( github.event.pull_request.labels.*.name, ' ' ) }}
+permissions:
+  contents: read
+  pull-requests: read
+  statuses: write
+
 jobs:
   prcop:
     runs-on: ubuntu-latest

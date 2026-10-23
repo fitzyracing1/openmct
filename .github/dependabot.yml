@@ -40,3 +40,8 @@ updates:
       - 'pr:daveit'
       - 'type:maintenance'
       - 'dependencies'
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
